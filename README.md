@@ -22,6 +22,7 @@ source env/bin/activate
 ```bash
 python main.py
 ```
+The first time the program runs the user is prompted for the userid and password to login to the Resmark website.  The credentials will be saved locally and used in subsequent runs of the program.
 
 ## Output
 ```
