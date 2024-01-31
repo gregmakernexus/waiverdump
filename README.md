@@ -1,7 +1,6 @@
-# Project Name
-waiverdump
+# waiverdump
 
-is a browser automation directly targeting the Resmark Waiversign website.  It is a Chrome automation using selenium webdriver.
+A browser automation directly targeting the Resmark Waiversign website.  It is a Chrome automation using selenium webdriver.
 
 ## Installation
 
