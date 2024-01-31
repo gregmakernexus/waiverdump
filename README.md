@@ -17,10 +17,14 @@ source env/bin/activate
 ~ pip install -r requirements.txt
 ```
 
-## usage
+## Usage
 
 ```bash
 python main.py
+```
+
+## Output
+```
 side menu is visible
  
 file successfully downloaded: /home/greg/Downloads/WaiverSignParticipants-2024-01-31.csv
