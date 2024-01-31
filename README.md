@@ -11,6 +11,17 @@ python3.12 -m venv env
 source env/bin/activate
 ```
 
-## Download files
-Download files 
+## Download files to the waiverdump directory
+
+```bash
 ~ pip install -r requirements.txt
+```
+
+## usage
+
+```bash
+python main.py
+side menu is visible
+ 
+file successfully downloaded: /home/greg/Downloads/WaiverSignParticipants-2024-01-31.csv
+```
