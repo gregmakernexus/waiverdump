@@ -4,6 +4,9 @@ A browser automation directly targeting the Resmark Waiversign website.  It is a
 
 ## Installation
 
+
+pi@raspberrypi ~ $ pi@raspberrypi ~ $ git config --global credential.helper store
+
 ```bash
 mkdir waiverdump
 cd waiverdump
@@ -16,6 +19,13 @@ source env/bin/activate
 ```bash
 ~ pip install -r requirements.txt
 ```
+
+Using git from the cli.
+```bash
+git config --global credential.helper store
+git clone https://github.com/gregmakernexus/waiverdump.git
+```
+You will be prompted for your git username and password/access token.  Once entered it will be stored
 
 ## Usage
 
