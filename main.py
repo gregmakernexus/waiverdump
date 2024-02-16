@@ -44,12 +44,10 @@ def main():
     # Open Chrome and login to waiversign
     # ------------------------------------------------------
     s = Service('/usr/bin/chromedriver')
-    options = ChromeOptions()
-    options.addArguments("start-maximized")
-    driver = webdriver.Chrome(options=options, service=s)
+    driver = webdriver.Chrome(service=s)
+    driver.maximize_window()
     driver.get("https://app.resmarksystems.com/login/")
     try:
-        driver.manage().window().maximize()
         button = wait_till_found(driver, By.ID, "loginButton")
         username = driver.find_element(By.ID, "username")
 
