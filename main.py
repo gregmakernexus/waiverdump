@@ -12,6 +12,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from pathlib import Path
 
+from seleniumbase.undetected import ChromeOptions
+
 
 def main():
     home = Path.home()
@@ -42,7 +44,9 @@ def main():
     # Open Chrome and login to waiversign
     # ------------------------------------------------------
     s = Service('/usr/bin/chromedriver')
-    driver = webdriver.Chrome(service=s)
+    options = ChromeOptions()
+    options.addArguments("start-maximized")
+    driver = webdriver.Chrome(options=options, service=s)
     driver.get("https://app.resmarksystems.com/login/")
     try:
         driver.manage().window().maximize()
