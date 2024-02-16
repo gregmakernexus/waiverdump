@@ -40,7 +40,7 @@ def main():
     # -----------------------------------------------------
     # Open Chrome and login to waiversign
     # ------------------------------------------------------
-    driver = webdriver.chromium.webdriver.Chromiumdriver()
+    driver = webdriver.Chrome('/usr/bin/chromedriver')
     driver.get("https://app.resmarksystems.com/login/")
     try:
         button = wait_till_found(driver, By.ID, "loginButton")
