@@ -96,7 +96,7 @@ def main():
 
     try:
         os.chdir(os.path.join(home, "Downloads"))
-        filename = wait_till_file(waiver_list)
+        filename = wait_till_file("WaiverSign*.*")
         if filename is not None:
             # Re-save the config file with the name of the downloaded file
             os.chdir(os.join(home, ".makerNexus"))
