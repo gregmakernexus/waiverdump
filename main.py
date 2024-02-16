@@ -12,29 +12,27 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from pathlib import Path
 
-from seleniumbase.undetected import ChromeOptions
-
 
 def main():
     home = Path.home()
-    download = os.path.join(home, "Downloads")
     waiver_list = os.path.join(download, "WaiverSign*.*")
     # ------------------------------------------------------
     # Get the config file
     # ------------------------------------------------------
-    config_name = os.path.join(home, ".waiversign.json")
-    if os.path.isfile(config_name):
-        with open(config_name) as json_file:
+    os.chdir(os.path.join(home, ".makerNexus"))
+    if os.path.isfile(".waiversign.json"):
+        with open(".waiversign.json") as json_file:
             config = json.load(json_file)
             if not ('userid' in config or 'password' in config):
                 print("invalid configuration.  Re-initializing.")
-                config = init_config(config_name)
+                config = init_config(".waiversign.json")
     else:
-        config = init_config(config_name)
+        config = init_config(".waiversign.json")
     # ------------------------------------------------------
-    # Delete all the downloaded files
+    # Delete all the downloaded files in Downloads folder
     # ------------------------------------------------------
-    _filelist = glob.glob(waiver_list, recursive=False)
+    os.chdir(os.path.join(home, "Downloads"))
+    _filelist = glob.glob("WaiverSign*.*", recursive=False)
     for file in _filelist:
         try:
             os.remove(file)
@@ -98,11 +96,14 @@ def main():
         exit(-2)
 
     try:
+        os.chdir(os.path.join(home, "Downloads"))
         filename = wait_till_file(waiver_list)
         if filename is not None:
+            # Re-save the config file with the name of the downloaded file
+            os.chdir(os.join(home, ".makerNexus"))
             config['file'] = filename
             print(config)
-            with open(config_name, 'w') as outfile:
+            with open(".waiversign.json", 'w') as outfile:
                 json.dump(config, outfile)
             print("file successfully downloaded:", filename)
 
