@@ -6,6 +6,7 @@ import json
 import re
 
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -40,7 +41,8 @@ def main():
     # -----------------------------------------------------
     # Open Chrome and login to waiversign
     # ------------------------------------------------------
-    driver = webdriver.Chrome('/usr/bin/chromedriver')
+    s = Service('/usr/bin/chromedriver')
+    driver = webdriver.Chrome(service=s)
     driver.get("https://app.resmarksystems.com/login/")
     try:
         button = wait_till_found(driver, By.ID, "loginButton")
