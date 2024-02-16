@@ -45,6 +45,7 @@ def main():
     driver = webdriver.Chrome(service=s)
     driver.get("https://app.resmarksystems.com/login/")
     try:
+        driver.manage().window().maximize()
         button = wait_till_found(driver, By.ID, "loginButton")
         username = driver.find_element(By.ID, "username")
 
@@ -63,7 +64,7 @@ def main():
     try:
         # make sure the buttons
         menu = wait_till_found(driver, By.ID, "waiversign")
-        menu.click()
+        # menu.click()
 
         menu = wait_till_found(driver, By.ID, "signedDocumentsNav")
         menu.click()
@@ -75,12 +76,6 @@ def main():
     # Click on the "export contacts" link
     # --------------------------------------------------------------
     try:
-        menu = wait_till_found(driver, By.ID, "signedDocumentsNav")
-        if menu is not None:
-            menu = wait_till_found(driver, By.ID, "waiversign")
-            menu.click()
-            WebDriverWait(driver, 20).until(EC.invisibility_of_element((By.ID, "signedDocumentsNav")))
-
         wait_till_found(driver, By.PARTIAL_LINK_TEXT, "Export Contacts")
         btn2 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "Export Contacts")))
         driver.execute_script('arguments[0].scrollIntoView(false);', btn2)
