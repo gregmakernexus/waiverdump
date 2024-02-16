@@ -95,12 +95,13 @@ def main():
         exit(-2)
 
     try:
-        os.chdir(os.path.join(home, "Downloads"))
+        download = os.path.join(home, "Downloads")
+        os.chdir(download)
         filename = wait_till_file("WaiverSign*.*")
         if filename is not None:
             # Re-save the config file with the name of the downloaded file
             os.chdir(os.path.join(home, ".makerNexus"))
-            config['file'] = filename
+            config['file'] = os.path.join(download, filename)  # make sure it is the absolute path
             print(config)
             with open(".waiversign.json", 'w') as outfile:
                 json.dump(config, outfile)
