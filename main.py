@@ -15,7 +15,6 @@ from pathlib import Path
 
 def main():
     home = Path.home()
-    waiver_list = os.path.join(download, "WaiverSign*.*")
     # ------------------------------------------------------
     # Get the config file
     # ------------------------------------------------------
