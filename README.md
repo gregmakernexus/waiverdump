@@ -4,6 +4,11 @@ A browser automation directly targeting the Resmark Waiversign website.  It is a
 
 ## Installation
 
+This program depends on selenium so you need the chromedriver for Raspberry PI 32-bit.
+```commandline
+sudo apt-get install chromium-chromedriver
+```
+
 ### Download package from github
 ```bash
 git config --global credential.helper store
